@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 import pickle
 
+st.set_option('deprecation.showPyplotGlobalUse', False)
+
 def icon(emoji: str):
     """Shows an emoji as a Notion-style page icon."""
     st.write(
