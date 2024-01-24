@@ -4,10 +4,10 @@ import numpy as np
 import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 import xgboost as xgb
 import matplotlib.pyplot as plt
 import plotly.express as px
-import pickle
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -20,15 +20,24 @@ def icon(emoji: str):
 
 df_training = pd.read_csv(r'Train_Titanic.csv')
 
-call_model = pickle.load(open("model_titanic.pkl", 'rb'))
+y = train_df['Survived']
+X = train_df.drop('Survived',axis=1)
+
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.138, random_state=2022, stratify=y)
+
+model = xgb.XGBClassifier()
+model.fit(X_train, y_train)
+
+# Melakukan prediksi pada data validasi
+y_pred = model.predict(X_val)
+
+# Evaluasi performa model
+accuracy = accuracy_score(y_val, y_pred)
+conf_matrix = confusion_matrix(y_val, y_pred)
+class_report = classification_report(y_val, y_pred)
 
 # Allow user input for new data
 new_data = {}  # Add input fields for new data
-
-new_data = pd.DataFrame(new_data)
-is_survive = call_model.predict(new_data)
-prob = call_model.predict_proba(new_data)
-print(is_survive,prob)
 
 with st.sidebar:
     st.image('OIG.jpeg')
