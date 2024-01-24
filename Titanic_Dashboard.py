@@ -42,7 +42,7 @@ new_data = [{
 }]  # Add input fields for new data
 
 # Melakukan prediksi pada data validasi
-y_pred = model.predict(new_data)
+y_pred = random_forest.predict(new_data)
 
 with st.sidebar:
     st.image('OIG.jpeg')
