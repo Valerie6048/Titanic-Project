@@ -29,11 +29,19 @@ X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.138, random_
 random_forest = RandomForestClassifier(n_estimators=100)
 random_forest.fit(X_train, y_train)
 
-# Melakukan prediksi pada data validasi
-
-
 # Allow user input for new data
-new_data = {}  # Add input fields for new data
+new_data = [{
+    'Pclass':2,
+    'Sex':0,
+    'Age':3,
+    'SibSp':0,
+    'Parch':0,
+    'Fare':1,
+    'Embarked':1,
+    'Title':1
+}]  # Add input fields for new data
+
+# Melakukan prediksi pada data validasi
 y_pred = model.predict(new_data)
 
 with st.sidebar:
