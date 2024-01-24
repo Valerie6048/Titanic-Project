@@ -20,8 +20,15 @@ def icon(emoji: str):
 
 df_training = pd.read_csv(r'Train_Titanic.csv')
 
+call_model = pickle.load(open("model_titanic.pkl", 'rb'))
+
 # Allow user input for new data
 new_data = {}  # Add input fields for new data
+
+new_data = pd.DataFrame(new_data)
+is_survive = call_model.predict(new_data)
+prob = call_model.predict_proba(new_data)
+print(is_survive,prob)
 
 with st.sidebar:
     st.image('OIG.jpeg')
