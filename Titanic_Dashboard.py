@@ -17,7 +17,7 @@ def icon(emoji: str):
         unsafe_allow_html=True,
     )
 
-df_training = pd.read_csv(r'C:\Users\Valerie\Documents\Pattern-Recognition-Final-Project\Titanic\Train_Titanic.csv')
+df_training = pd.read_csv(r'Train_Titanic.csv')
 
 call_model = pickle.load(open("model_titanic.pkl", 'rb'))
 
@@ -30,7 +30,7 @@ prob = call_model.predict_proba(new_data)
 print(is_survive,prob)
 
 with st.sidebar:
-    # st.image('Titanic\OIG.jpeg')
+    st.image('OIG.jpeg')
     st.title('Titanic Survival Prediction')
     st.caption('Valerie6048')
 
