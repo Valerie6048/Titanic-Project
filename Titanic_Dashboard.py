@@ -18,7 +18,7 @@ def icon(emoji: str):
         unsafe_allow_html=True,
     )
 
-df_training = pd.read_csv(r'Train_Titanic.csv')
+train_df = pd.read_csv(r'Train_Titanic.csv')
 
 y = train_df['Survived']
 X = train_df.drop('Survived',axis=1)
