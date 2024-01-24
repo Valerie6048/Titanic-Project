@@ -41,7 +41,7 @@ new_data = [{
     'Title':1
 }]  # Add input fields for new data
 
- new_data = pd.DataFrame([new_data])
+new_data = pd.DataFrame([new_data])
 # Melakukan prediksi pada data validasi
 y_pred = random_forest.predict(new_data)
 
