@@ -9,6 +9,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 import plotly.express as px
+import scipy.stats as stats
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -47,12 +48,13 @@ with tabs1:
     st.header('Titanic Passanger Dataset and Visualization')
     st.subheader('Titanic Passanger Dataset')
     st.write(train_df)
-
+    
     st.subheader('Survival Probability by Gender Visualization')
-    gender_plot = sns.barplot(x='Sex', y='Survived', data=train_df, ci=None, palette='rocket')
-    plt.ylabel('Survival Probability')
-    plt.title('Survival Probability by Gender')
-    st.pyplot(gender_plot)
+    fig, ax = plt.subplots()
+    sns.barplot(x='Sex', y='Survived', data=train_df, ci=None, palette='rocket', ax=ax)
+    ax.set_ylabel('Survival Probability')
+    ax.set_title('Survival Probability by Gender')
+    st.pyplot(fig)
 
     st.subheader('Survival Probability by Passenger Class Visualization')
     class_plot = sns.barplot(x='Pclass', y='Survived', data=train_df, ci=None, palette='mako')
