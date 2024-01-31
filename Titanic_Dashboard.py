@@ -66,10 +66,6 @@ with tabs1:
     st.pyplot(fig)
     
     fig, ax = plt.subplots()
-    class_plot = sns.barplot(x='Pclass', y='Survived', data=train_df, ci=None, palette='mako', ax=ax)
-    ax.set_ylabel('Survival Probability')
-    ax.set_xlabel('Passenger Class')
-    ax.set_title('Survival Probability by Passenger Class')
     sns.barplot(x = 'Pclass', y ='Survived',hue= 'Sex', data = train_df, ci = None, palette = "crest", ax=ax)
     ax.set_ylabel('Survival Probability')
     ax.set_xlabel('Passenger Clas')
