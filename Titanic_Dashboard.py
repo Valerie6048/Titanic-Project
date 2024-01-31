@@ -57,11 +57,12 @@ with tabs1:
     st.pyplot(fig)
 
     st.subheader('Survival Probability by Passenger Class Visualization')
-    class_plot = sns.barplot(x='Pclass', y='Survived', data=train_df, ci=None, palette='mako')
-    plt.ylabel('Survival Probability')
-    plt.xlabel('Passenger Class')
-    plt.title('Survival Probability by Passenger Class')
-    st.pyplot(class_plot)
+    fig, ax = plt.subplots()
+    class_plot = sns.barplot(x='Pclass', y='Survived', data=train_df, ci=None, palette='mako', ax=ax)
+    ax.set_ylabel('Survival Probability')
+    ax.set_xlabel('Passenger Class')
+    ax.set_title('Survival Probability by Passenger Class')
+    st.pyplot(fig)
 
 with tabs2:
     st.header("ANJAY")
