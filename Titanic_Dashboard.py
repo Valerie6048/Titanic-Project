@@ -54,7 +54,8 @@ with tabs1:
     sns.barplot(x='Sex', y='Survived', data=train_df, ci=None, palette='rocket', ax=ax)
     ax.set_ylabel('Survival Probability')
     ax.set_title('Survival Probability by Gender')
-    ax.set_xticklabels(x, ['Men', 'Women'])
+    ax.set_xticks(x)
+    ax.set_xticklabels(['Men', 'Women'])
     st.pyplot(fig)
 
     st.subheader('Survival Probability by Passenger Class Visualization')
