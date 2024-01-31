@@ -28,9 +28,11 @@ icon("🛳️")
 In this final project, I aim to make a Data Visualization and Prediction for Titanic Passenger Survival Probability
 """
 
-st.write(train_df)
+
 
 st.subheader('Titanic Passanger Dataset and Visualization')
-st.write(df_training)
+st.write(train_df)
+
+
 
 st.caption('Pengpol Kelompok 8 2023')
