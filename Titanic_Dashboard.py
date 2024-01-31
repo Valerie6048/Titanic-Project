@@ -28,10 +28,43 @@ icon("🛳️")
 In this final project, I aim to make a Data Visualization and Prediction for Titanic Passenger Survival Probability
 """
 
+with st.sidebar:
+    st.image('Titanic.jpg')
+    st.title('Biodata')
+    """
+    Name: Akhmad Nizar Zakaria
+    
+    Github: [Valerie6048](https://github.com/Valerie6048)
+    
+    LinkedIn: [Akhmad Nizar Zakaria](https://www.linkedin.com/in/akhmad-nizar-zakaria-8a692b229/)
 
+    """
+    st.caption('@Valerie6048')
 
-st.subheader('Titanic Passanger Dataset and Visualization')
-st.write(train_df)
+tabs1, tabs2= st.tabs(["Data Visualization", "Prediction Result"])
+
+with tabs1:
+    st.header('Titanic Passanger Dataset and Visualization')
+    st.subheader('Titanic Passanger Dataset')
+    st.write(train_df)
+
+    st.subheader('Survival Probability by Gender Visualization')
+    gender_plot = sns.barplot(x='Sex', y='Survived', data=train_df, ci=None, palette='rocket')
+    plt.ylabel('Survival Probability')
+    plt.title('Survival Probability by Gender')
+    st.pyplot(gender_plot)
+
+    st.subheader('Survival Probability by Passenger Class Visualization')
+    class_plot = sns.barplot(x='Pclass', y='Survived', data=train_df, ci=None, palette='mako')
+    plt.ylabel('Survival Probability')
+    plt.xlabel('Passenger Class')
+    plt.title('Survival Probability by Passenger Class')
+    st.pyplot(class_plot)
+
+with tabs2:
+    st.header("ANJAY")
+    
+
 
 
 
