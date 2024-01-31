@@ -21,41 +21,14 @@ def icon(emoji: str):
 
 train_df = pd.read_csv(r'Train_Titanic.csv')
 
-y = train_df['Survived']
-X = train_df.drop('Survived',axis=1)
-
-X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.138, random_state=2022, stratify=y)
-
-random_forest = RandomForestClassifier(n_estimators=100)
-random_forest.fit(X_train, y_train)
-
-# Allow user input for new data
-new_data = [{
-    'Pclass':2,
-    'Sex':0,
-    'Age':3,
-    'SibSp':0,
-    'Parch':0,
-    'Fare':1,
-    'Embarked':1,
-    'Title':1
-}]  # Add input fields for new data
-
-new_data = pd.DataFrame([new_data])
-# Melakukan prediksi pada data validasi
-y_pred = random_forest.predict(new_data)
-
-with st.sidebar:
-    st.image('OIG.jpeg')
-    st.title('Titanic Survival Prediction')
-    st.caption('Valerie6048')
-
 icon("🛳️")
 """
 # Titanic Survival Prediction Project
 ## Overview
 In this final project, I aim to make a Data Visualization and Prediction for Titanic Passenger Survival Probability
 """
+
+st.write(train_df)
 
 st.subheader('Titanic Passanger Dataset and Visualization')
 st.write(df_training)
