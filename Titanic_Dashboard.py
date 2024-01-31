@@ -59,11 +59,25 @@ with tabs1:
 
     st.subheader('Survival Probability by Passenger Class Visualization')
     fig, ax = plt.subplots()
-    class_plot = sns.barplot(x='Pclass', y='Survived', data=train_df, ci=None, palette='mako', ax=ax)
+    sns.barplot(x='Pclass', y='Survived', data=train_df, ci=None, palette='mako', ax=ax)
     ax.set_ylabel('Survival Probability')
     ax.set_xlabel('Passenger Class')
     ax.set_title('Survival Probability by Passenger Class')
     st.pyplot(fig)
+    
+    fig, ax = plt.subplots()
+    class_plot = sns.barplot(x='Pclass', y='Survived', data=train_df, ci=None, palette='mako', ax=ax)
+    ax.set_ylabel('Survival Probability')
+    ax.set_xlabel('Passenger Class')
+    ax.set_title('Survival Probability by Passenger Class')
+    sns.barplot(x = 'Pclass', y ='Survived',hue= 'Sex', data = train_df, ci = None, palette = "crest", ax=ax)
+    ax.set_ylabel('Survival Probability')
+    ax.set_xlabel('Passenger Clas')
+    ax.set_title('Survival Probability by Pclass + Gender')
+    ax.set_xticklabels(['Class 1', 'Class 2', 'Class 3'])
+    st.pyplot(fig)
+
+    
 
 with tabs2:
     st.header("ANJAY")
@@ -72,4 +86,4 @@ with tabs2:
 
 
 
-st.caption('Pengpol Kelompok 8 2023')
+st.caption('@Valerie6048')
