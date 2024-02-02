@@ -81,7 +81,7 @@ with tabs1:
 
     st.subheader('Survival Probability by Title Visualization')
     fig, ax = plt.subplots()
-    sns.barplot(x = 'Title', y ='Survived', data = train_df, palette = 'rocket', ci = None, , ax = ax)
+    sns.barplot(x = 'Title', y ='Survived', data = train_df, palette = 'rocket', ci = None, ax = ax)
     ax.set_ylabel('Survival Probability')
     ax.set_xticklabels(['Mr', 'Miss',' Mrs', 'Master', 'Other'])
     ax.set_title('Survival Probability by Title')
