@@ -73,6 +73,10 @@ with tabs1:
     ax.set_xticklabels(['Class 1', 'Class 2', 'Class 3'])
     st.pyplot(fig)
 
+    fig, ax = plt.subplots()
+    sns.heatmap(train_df[['Survived', 'SibSp', 'Parch', 'Age', 'Fare']].corr(), annot = True, fmt = '.2f', cmap = 'flare', ax = ax)
+    st.pyplot(fig)
+
 with tabs2:
     st.header("ANJAY")
     
