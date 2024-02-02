@@ -64,7 +64,8 @@ with tabs1:
     ax.set_xlabel('Passenger Class')
     ax.set_title('Survival Probability by Passenger Class')
     st.pyplot(fig)
-    
+
+    st.subheader('Survival Probability by Passenger Class + Gender Visualization')
     fig, ax = plt.subplots()
     sns.barplot(x = 'Pclass', y ='Survived',hue= 'Sex', data = train_df, ci = None, palette = "crest", ax=ax)
     ax.set_ylabel('Survival Probability')
@@ -73,15 +74,20 @@ with tabs1:
     ax.set_xticklabels(['Class 1', 'Class 2', 'Class 3'])
     st.pyplot(fig)
 
+    st.subheader('Correlation Matrix for Survive Probability based on Sibsp, Parch, Age, and Fare')
     fig, ax = plt.subplots()
     sns.heatmap(train_df[['Survived', 'SibSp', 'Parch', 'Age', 'Fare']].corr(), annot = True, fmt = '.2f', cmap = 'flare', ax = ax)
     st.pyplot(fig)
 
+    st.subheader('Survival Probability by Title Visualization')
+    fig, ax = plt.subplots()
+    sns.barplot(x = 'Title', y ='Survived', data = train_df, palette = 'rocket', ci = None, , ax = ax)
+    ax.set_ylabel('Survival Probability')
+    ax.set_xticklabels(['Mr', 'Miss',' Mrs', 'Master', 'Other'])
+    ax.set_title('Survival Probability by Title')
+    st.pyplot(fig)
+
 with tabs2:
     st.header("ANJAY")
-    
-
-
-
 
 st.caption('@Valerie6048')
