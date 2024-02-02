@@ -22,6 +22,12 @@ def icon(emoji: str):
 
 train_df = pd.read_csv(r'Train_Titanic.csv')
 
+model = RandomForestClassifier()
+X = df_water_potability.drop('Survived', axis=1)
+y = df_water_potability['Survived']
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.01, random_state=2022, stratify=y)
+model.fit(X_train, y_train)
+
 icon("🛳️")
 """
 # Titanic Survival Prediction Project
@@ -88,6 +94,18 @@ with tabs1:
     st.pyplot(fig)
 
 with tabs2:
-    st.header("ANJAY")
+    st.header('User Input Features')
+    new_data = {}
+
+    inputPassengerClass = st.selectbox("Pick one",['1', '2', '3'])
+    inputGender = st.selectbox("Pick one",['Men', 'Women'])
+    inputAge = st.number_input("Pick a number", 0, 150)
+    inputSibSp = st.selectbox("Pick one",['0', '1', '2', '3', '4', '5'])
+    inputParch = st.selectbox("Pick one",['0', '1', '2', '3', '4', '5'])
+    inputFare = st.selectbox("Pick one",['0', '1', '2', '3', '4', '5'])
+    inputEmbark = st.selectbox("Pick one",['0', '1', '2'])
+    inputTitle = st.selectbox("Pick one",['Mr', 'Miss', 'Mrs', 'Master', 'Other'])
+
+    
 
 st.caption('@Valerie6048')
