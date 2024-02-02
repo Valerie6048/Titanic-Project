@@ -97,14 +97,14 @@ with tabs2:
     st.header('User Input Features')
     new_data = {}
 
-    inputPassengerClass = st.selectbox("Pick one",['1', '2', '3'])
-    inputGender = st.selectbox("Pick one",['Men', 'Women'])
-    inputAge = st.number_input("Pick a number", 0, 150)
-    inputSibSp = st.selectbox("Pick one",['0', '1', '2', '3', '4', '5'])
-    inputParch = st.selectbox("Pick one",['0', '1', '2', '3', '4', '5'])
-    inputFare = st.selectbox("Pick one",['0', '1', '2', '3', '4', '5'])
-    inputEmbark = st.selectbox("Pick one",['0', '1', '2'])
-    inputTitle = st.selectbox("Pick one",['Mr', 'Miss', 'Mrs', 'Master', 'Other'])
+    inputPassengerClass = st.selectbox("Input Passenger Class",['1', '2', '3'])
+    inputGender = st.selectbox("Input Gender",['Men', 'Women'])
+    inputAge = st.number_input("Input Age", 0, 150)
+    inputSibSp = st.selectbox("Input SibSp",['0', '1', '2', '3', '4', '5'])
+    inputParch = st.selectbox("Input Parch",['0', '1', '2', '3', '4', '5'])
+    inputFare = st.selectbox("Input Fare",['0', '1', '2', '3', '4', '5'])
+    inputEmbark = st.selectbox("Input Embark",['0', '1', '2'])
+    inputTitle = st.selectbox("Input Title",['Mr', 'Miss', 'Mrs', 'Master', 'Other'])
 
     
 
