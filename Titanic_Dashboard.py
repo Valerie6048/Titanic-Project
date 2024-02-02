@@ -23,8 +23,8 @@ def icon(emoji: str):
 train_df = pd.read_csv(r'Train_Titanic.csv')
 
 model = RandomForestClassifier()
-X = df_water_potability.drop('Survived', axis=1)
-y = df_water_potability['Survived']
+X = train_df.drop('Survived', axis=1)
+y = train_df['Survived']
 X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.01, random_state=2022, stratify=y)
 model.fit(X_train, y_train)
 
