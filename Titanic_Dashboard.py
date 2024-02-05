@@ -51,9 +51,7 @@ with st.sidebar:
 tabs1, tabs2= st.tabs(["Data Visualization", "Prediction Result"])
 
 with tabs1:
-    st.header('Titanic Passanger Dataset and Visualization')
-    st.subheader('Titanic Passanger Dataset')
-    st.write(train_df)
+    st.header('Titanic Passenger  Visualization')
     
     st.subheader('Survival Probability by Gender Visualization')
     fig, ax = plt.subplots()
@@ -97,15 +95,69 @@ with tabs2:
     st.header('User Input Features')
     new_data = {}
 
-    inputPassengerClass = st.selectbox("Input Passenger Class",['1', '2', '3'])
+    class_mapping = {
+        '1st Class': 1,
+        '2nd Class': 2,
+        '3rd Class': 3
+        }
+
+    gender_mapping = {
+        'Men': 0,
+        'Women': 1
+        )
+
+    embark_mapping = {
+        'Cherbourg': 1, 
+        'Queenstown': 2, 
+        'Southampton': 0
+        }
+
+    title_mapping = {
+        'Mr': 1, 'Miss': 2, 'Mrs': 3, 'Master': 4, 'Other': 5
+    }
+    
+    inputPassengerClass = st.selectbox("Input Passenger Class",['1st Class', '2nd Class', '3rd Class'])
     inputGender = st.selectbox("Input Gender",['Men', 'Women'])
     inputAge = st.number_input("Input Age", 0, 150)
-    inputSibSp = st.selectbox("Input SibSp",['0', '1', '2', '3', '4', '5'])
-    inputParch = st.selectbox("Input Parch",['0', '1', '2', '3', '4', '5'])
+    inputSibSp = st.number_input("Input Number of siblings / spouses aboard the Titanic",0 , 5)
+    inputParch = st.number_input("Input Number of parents / children aboard the Titanic",0 , 5)
     inputFare = st.selectbox("Input Fare",['0', '1', '2', '3', '4', '5'])
-    inputEmbark = st.selectbox("Input Embark",['0', '1', '2'])
+    inputEmbark = st.selectbox("Input Embark",['Cherbourg', 'Queenstown', 'Southampton'])
     inputTitle = st.selectbox("Input Title",['Mr', 'Miss', 'Mrs', 'Master', 'Other'])
 
+    selected_class_number = class_mapping[inputPassengerClass]
+    selected_gender = gender_mapping[inputGender]
+    if inputAge <= 11:
+    age_category = 0
+    elif 11 < inputAge <= 18:
+        age_category = 1
+    elif 18 < inputAge <= 25:
+        age_category = 2
+    elif 25 < inputAge <= 40:
+        age_category = 3
+    elif 40 < inputAge <= 65:
+        age_category = 4
+    else:
+        age_category = 5
+    selected_embark = embark_mapping[inputEmbark]
+    selected_title = title_mapping[inputTitle]
+
+    new_data = [{
+    'Pclass': selected_class_number,
+    'Sex':selected_gender,
+    'Age':age_category,
+    'SibSp':inputSibSp,
+    'Parch':inputParch,
+    'Fare':inputFare,
+    'Embarked':selected_embark,
+    'Title':selected_title
+    }]
+
+    prediction = model.predict(new_data)
+    probability = model.predict_proba(new_data_scaled)[:, 1]
+    st.subheader('Prediction Result')
+    result_text = f"Your will {'Survive' if prediction[0] == 1 else 'Not Survive'} with a probability of {probability[0]:.2%}." 
+    st.write(result_text)
     
 
 st.caption('@Valerie6048')
