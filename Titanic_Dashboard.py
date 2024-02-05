@@ -128,7 +128,7 @@ with tabs2:
     selected_class_number = class_mapping[inputPassengerClass]
     selected_gender = gender_mapping[inputGender]
     if inputAge <= 11:
-    age_category = 0
+        age_category = 0
     elif 11 < inputAge <= 18:
         age_category = 1
     elif 18 < inputAge <= 25:
@@ -139,6 +139,7 @@ with tabs2:
         age_category = 4
     else:
         age_category = 5
+    
     selected_embark = embark_mapping[inputEmbark]
     selected_title = title_mapping[inputTitle]
 
