@@ -104,7 +104,7 @@ with tabs2:
     gender_mapping = {
         'Men': 0,
         'Women': 1
-        )
+    }
 
     embark_mapping = {
         'Cherbourg': 1, 
