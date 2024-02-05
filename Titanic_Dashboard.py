@@ -116,15 +116,22 @@ with tabs2:
         'Mr': 1, 'Miss': 2, 'Mrs': 3, 'Master': 4, 'Other': 5
     }
     
-    inputPassengerClass = st.selectbox("Input Passenger Class",['1st Class', '2nd Class', '3rd Class'])
-    inputGender = st.selectbox("Input Gender",['Men', 'Women'])
-    inputAge = st.number_input("Input Age", 0, 150)
-    inputSibSp = st.number_input("Input Number of siblings / spouses aboard the Titanic",0 , 5)
-    inputParch = st.number_input("Input Number of parents / children aboard the Titanic",0 , 5)
-    inputFare = st.selectbox("Input Fare",['0', '1', '2', '3', '4', '5'])
-    inputEmbark = st.selectbox("Input Embark",['Cherbourg', 'Queenstown', 'Southampton'])
-    inputTitle = st.selectbox("Input Title",['Mr', 'Miss', 'Mrs', 'Master', 'Other'])
+    default_age = 18
 
+    left_column, right_column = st.columns(2)
+    
+    with left_column:
+        inputPassengerClass = st.selectbox("Input Passenger Class",['1st Class', '2nd Class', '3rd Class'])
+        inputGender = st.selectbox("Input Gender",['Men', 'Women'])
+        inputAge = st.number_input("Input Age", 0, 150, value=default_age)
+        inputSibSp = st.number_input("Input Number of siblings / spouses aboard the Titanic",0 , 5)
+    
+    with right_column:
+        inputParch = st.number_input("Input Number of parents / children aboard the Titanic",0 , 5)
+        inputFare = st.selectbox("Input Fare",['0', '1', '2', '3', '4', '5'])
+        inputEmbark = st.selectbox("Input Embark",['Cherbourg', 'Queenstown', 'Southampton'])
+        inputTitle = st.selectbox("Input Title",['Mr', 'Miss', 'Mrs', 'Master', 'Other'])
+    
     selected_class_number = class_mapping[inputPassengerClass]
     selected_gender = gender_mapping[inputGender]
     if inputAge <= 11:
@@ -142,7 +149,7 @@ with tabs2:
     
     selected_embark = embark_mapping[inputEmbark]
     selected_title = title_mapping[inputTitle]
-
+    
     new_data = [{
     'Pclass': selected_class_number,
     'Sex':selected_gender,
@@ -153,12 +160,19 @@ with tabs2:
     'Embarked':selected_embark,
     'Title':selected_title
     }]
-
-    prediction = model.predict(new_data)
-    probability = model.predict_proba(new_data_scaled)[:, 1]
-    st.subheader('Prediction Result')
-    result_text = f"Your will {'Survive' if prediction[0] == 1 else 'Not Survive'} with a probability of {probability[0]:.2%}." 
-    st.write(result_text)
     
+    df_input = pd.DataFrame(new_data)
+    
+    prediction = model.predict(df_input)
+    probability = model.predict_proba(df_input)[:, 1]
+    st.subheader('Prediction Result')
 
+    color = 'green' if prediction[0] == 1 else 'red'
+
+    # Construct the string with Markdown and HTML
+    output_text = f"## You will <span style='color:{color}'>{'Survive' if prediction[0] == 1 else 'Not Survive'}</span> with a probability of <span style='color:blue'>{probability[0]:.2%}</span>."
+    
+    # Display the text using Markdown
+    st.markdown(output_text, unsafe_allow_html=True)
+    
 st.caption('@Valerie6048')
