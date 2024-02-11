@@ -176,7 +176,7 @@ with tabs2:
     # Display the text using Markdown
     st.markdown(output_text, unsafe_allow_html=True)
     if prediction[0] == 1:
-        st.image("survive.jpg")
+        st.image("survive.jpeg")
     else:
-        st.image("notsurvive.jpg")
+        st.image("notsurvive.jpeg")
 st.caption('@Valerie6048')
