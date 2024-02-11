@@ -76,6 +76,7 @@ with tabs1:
     ax.set_xlabel('Passenger Clas')
     ax.set_title('Survival Probability by Pclass + Gender')
     ax.set_xticklabels(['Class 1', 'Class 2', 'Class 3'])
+    ax.legend(title='Gender', labels=['Men', 'Women'])
     st.pyplot(fig)
 
     st.subheader('Correlation Matrix for Survive Probability based on Sibsp, Parch, Age, and Fare')
