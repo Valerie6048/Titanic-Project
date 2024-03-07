@@ -1,7 +1,7 @@
 # Titanic-Project
 
 ## 🧐 About <a name = "about"></a>
-In this final project, the goal is to build a machine-learning model and dashboard for Titanic Suvival Prediction Model based on some parameters. The Dashboard will be build in Streamlit and the model will be using random forest.
+In this final project, the goal is to build a machine-learning model and dashboard for the Titanic Survival Prediction Model based on some parameters. The Dashboard will be built in Streamlit and the model will be using random forest.
 
 ## 💭 How it works <a name = "working"></a>
 ### Data Exploration and Cleaning
@@ -10,12 +10,12 @@ In this final project, the goal is to build a machine-learning model and dashboa
 - Perform feature engineering if needed.
 
 ### Exploratory Data Analysis (EDA)
-- Visualize the distribution of Titanic Passanger parameters/features.
+- Visualize the distribution of Titanic Passenger parameters/features.
 - Understand the relationships between different features.
 - Analyze statistical summaries, visualizations, and correlations.
 
 ### Model Building
-- Use machine learning algorithms (e.g., Random Forest, XGBoost, KNN, Logistic Regression) to predict Passanger Survivability.
+- Use machine learning algorithms (e.g., Random Forest, XGBoost, KNN, Logistic Regression) to predict Passenger Survivability.
 - Train the models on a training set and evaluate them on a validation set.
 
 ### Model Evaluation
@@ -24,8 +24,19 @@ In this final project, the goal is to build a machine-learning model and dashboa
 
 ### Streamlit Dashboard
 - Create a Streamlit dashboard for an interactive user interface.
-- Allow users to input new data, and the trained model predicts Passanger Survivability.
+- Allow users to input new data, and the trained model predicts Passenger Survivability.
 - Integrate visualizations, including count plots and heatmaps, into the Streamlit app.
+
+## ⚙️ How Its Build <a name = "Build"></a>
+### Library
+- pandas: [pandas](https://pandas.pydata.org/)
+- sklearn: [scikit-learn](https://scikit-learn.org/)
+- matplotlib: [matplotlib](https://matplotlib.org/)
+- seaborn: [seaborn](https://seaborn.pydata.org/)
+- numpy: [numpy](https://numpy.org/)
+
+### Dataset
+[Titanic Dataset](https://www.kaggle.com/competitions/titanic)
 
 ## 🙏 Conclusion <a name = "Conclusion"></a>
 - Summarize findings and insights gained from the data.
