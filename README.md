@@ -1,4 +1,13 @@
-# Titanic-Project
+<p align="center">
+  <a href="" rel="noopener">
+ <img width=200px height=200px src="Titanic.jpg" alt="Project logo"></a>
+</p>
+
+<h3 align="center">Titanic Passenger Survivability PredicitonProject</h3>
+
+<div align="center">
+
+
 
 ## 🧐 About <a name = "about"></a>
 In this final project, the goal is to build a machine-learning model and dashboard for the Titanic Survival Prediction Model based on some parameters. The Dashboard will be built in Streamlit and the model will be using random forest.
