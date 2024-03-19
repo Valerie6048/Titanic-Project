@@ -5,7 +5,7 @@
 
 <h3 align="center">Titanic Passenger Survivability PredicitonProject</h3>
 
-<div align="center">
+<div align="left">
 
 
 
